@@ -1,0 +1,17 @@
+[
+  {
+    "UserId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "Items": [
+      {
+        "ProductId": "44444444-4444-4444-4444-444444444444",
+        "ProductName": "USB-C Hub",
+        "UnitPrice": 45,
+        "Quantity": 1
+      }
+    ]
+  },
+  {
+    "UserId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "Items": []
+  }
+]
