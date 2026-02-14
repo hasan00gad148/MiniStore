@@ -3,5 +3,13 @@
 //Class1.Main(); 
 
 
-Console.WriteLine("Hello, World!");
-
+namespace MiniStore
+{
+    public class MiniStore
+    {
+        public static void Main(string[] args)
+        {
+            
+        }
+    }
+}
