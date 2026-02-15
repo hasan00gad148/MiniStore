@@ -16,6 +16,7 @@ namespace MiniStore
 
             var userService = new UserService(Path.Combine(dataPath, "users.json"));
             var productService = new ProductService(Path.Combine(dataPath, "products.json"));
+            var cartService = new CartService(Path.Combine(dataPath, "carts.json"), productService);
 
             while (true)
             {
@@ -92,10 +93,26 @@ namespace MiniStore
                         break;
 
                     case "6": // add to cart
+                        Console.Write("User Id: ");
+                        var uid = Console.ReadLine();
+                        Console.Write("Product Id: ");
+                        var prid = Console.ReadLine();
+                        Console.Write("Quantity: ");
+                        var qty = int.TryParse(Console.ReadLine(), out var q) ? q : 0;
+                        if (Guid.TryParse(uid, out var guidUid) && Guid.TryParse(prid, out var guidPr))
+                            cartService.AddToCart(guidUid, guidPr, qty);
                         break;
 
                     case "7": // view cart
-
+                        Console.Write("User Id: ");
+                        var vu = Console.ReadLine();
+                        if (Guid.TryParse(vu, out var guidVu))
+                        {
+                            var cart = cartService.GetCart(guidVu);
+                            Console.WriteLine($"\nCart (Total: {cart.Total:C}):");
+                            foreach (var item in cart.items)
+                                Console.WriteLine($"- {item.ProductName} | {item.Quantity} x {item.ProductPrice:C} = {item.LineTotal:C}");
+                        }
                         break;
 
                     case "8": // checkout

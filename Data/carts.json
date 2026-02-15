@@ -1,17 +1,32 @@
 [
   {
     "UserId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-    "Items": [
-      {
-        "ProductId": "44444444-4444-4444-4444-444444444444",
-        "ProductName": "USB-C Hub",
-        "UnitPrice": 45,
-        "Quantity": 1
-      }
-    ]
+    "items": [],
+    "Total": 0
   },
   {
     "UserId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
-    "Items": []
+    "items": [],
+    "Total": 0
+  },
+  {
+    "UserId": "4accb523-2dee-4a23-b6b9-05530b5a1f46",
+    "items": [
+      {
+        "ProductId": "b11b027d-9ced-4e53-baa6-336012f459c3",
+        "ProductName": "bluetooth mouse",
+        "ProductPrice": 20,
+        "Quantity": 2,
+        "LineTotal": 40
+      },
+      {
+        "ProductId": "11111111-1111-1111-1111-111111111111",
+        "ProductName": "Mechanical Keyboard",
+        "ProductPrice": 120,
+        "Quantity": 1,
+        "LineTotal": 120
+      }
+    ],
+    "Total": 160
   }
 ]
