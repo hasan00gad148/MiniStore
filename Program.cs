@@ -15,7 +15,8 @@ namespace MiniStore
             var dataPath = Path.Combine(Directory.GetCurrentDirectory(),"../../../", "Data");
 
             var userService = new UserService(Path.Combine(dataPath, "users.json"));
-  
+            var productService = new ProductService(Path.Combine(dataPath, "products.json"));
+
             while (true)
             {
                 Console.WriteLine("\nAvailable Commands:");
@@ -53,12 +54,41 @@ namespace MiniStore
                         break;
 
                     case "3": // list products
+                        var products = productService.GetAll();
+                        Console.WriteLine("\nProducts:");
+                        foreach (var p in products)
+                            Console.WriteLine($"- {p.Name} | Price: {p.Price:C} | Stock: {p.Stock} | Id: {p.Id} | Total: {p.Price * p.Stock}");
                         break;
 
                     case "4": // add product
+                        Console.Write("Name: ");
+                        var pname = Console.ReadLine();
+                        Console.Write("Price: ");
+                        var pprice = decimal.TryParse(Console.ReadLine(), out var pr) ? pr : 0;
+                        Console.Write("Stock: ");
+                        var pstock = int.TryParse(Console.ReadLine(), out var st) ? st : -1;
+                        if (!string.IsNullOrEmpty(pname))
+                            productService.Add(pname, pprice, pstock);
                         break;
 
                     case "5": // update stock
+                        Console.Write("Product Id: ");
+                        var pid = Console.ReadLine();
+                        if (Guid.TryParse(pid, out var guidPid))
+                        {
+                            var prod = productService.GetById(guidPid);
+                            if (prod != null)
+                            {
+                                Console.Write($"new Price for {prod.Name}: ");
+                                decimal Price = decimal.TryParse(Console.ReadLine(), out var npr) ? npr : prod.Price;
+                                Console.Write($"new Stock for {prod.Name}: ");
+                                int Stock = int.TryParse(Console.ReadLine(), out var nst) ? nst : prod.Stock;
+
+                                productService.Update(guidPid, Price, Stock);
+                                Console.WriteLine("✅ Stock updated.");
+                            }
+                            else Console.WriteLine("❌ Product not found.");
+                        }
                         break;
 
                     case "6": // add to cart
