@@ -6,17 +6,41 @@
       {
         "ProductId": "11111111-1111-1111-1111-111111111111",
         "ProductName": "Mechanical Keyboard",
-        "UnitPrice": 120,
-        "Quantity": 1
+        "ProductPrice": 0,
+        "Quantity": 1,
+        "LineTotal": 0
       },
       {
         "ProductId": "22222222-2222-2222-2222-222222222222",
         "ProductName": "Gaming Mouse",
-        "UnitPrice": 75,
-        "Quantity": 2
+        "ProductPrice": 0,
+        "Quantity": 2,
+        "LineTotal": 0
       }
     ],
     "Total": 270,
     "CreatedAt": "2026-02-10T10:30:00Z"
+  },
+  {
+    "Id": "13935910-b3b1-45a9-8842-c85e59b28d05",
+    "UserId": "4accb523-2dee-4a23-b6b9-05530b5a1f46",
+    "Items": [
+      {
+        "ProductId": "b11b027d-9ced-4e53-baa6-336012f459c3",
+        "ProductName": "bluetooth mouse",
+        "ProductPrice": 20,
+        "Quantity": 2,
+        "LineTotal": 40
+      },
+      {
+        "ProductId": "11111111-1111-1111-1111-111111111111",
+        "ProductName": "Mechanical Keyboard",
+        "ProductPrice": 120,
+        "Quantity": 1,
+        "LineTotal": 120
+      }
+    ],
+    "Total": 160,
+    "CreatedAt": "2026-02-15T07:22:39.6098411Z"
   }
 ]

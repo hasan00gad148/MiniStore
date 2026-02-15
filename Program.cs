@@ -17,6 +17,7 @@ namespace MiniStore
             var userService = new UserService(Path.Combine(dataPath, "users.json"));
             var productService = new ProductService(Path.Combine(dataPath, "products.json"));
             var cartService = new CartService(Path.Combine(dataPath, "carts.json"), productService);
+            var orderService = new OrderService(Path.Combine(dataPath, "orders.json"), productService, cartService);
 
             while (true)
             {
@@ -116,6 +117,14 @@ namespace MiniStore
                         break;
 
                     case "8": // checkout
+                        Console.Write("User Id: ");
+                        var cu = Console.ReadLine();
+                        if (Guid.TryParse(cu, out var guidCu))
+                        {
+                            var user = userService.GetAll().FirstOrDefault(u => u.Id == guidCu);
+                            if (user != null) orderService.Checkout(user);
+                            else Console.WriteLine("❌ User not found.");
+                        }
                         break;
 
                     case "9": // list orders
